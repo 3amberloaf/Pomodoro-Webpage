@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <article class="col-8 lh-lg fs-5">
+
+            <h1>Index Page</h1>
+            {{ lipsum (n=5, html=True, min=20, max=100) }}
+        </article>
+        {% if current_user.is_authenticated == false %}
+            <aside class="col-4">
+                <h2>Login</h2>
+                <form action="{{ url_for('auth.login') }}" method=post>
+                    <dl>
+                        {{ form.csrf_token }}
+                        {{ render_field(form.email) }}
+                        {{ render_field(form.password) }}
+                    </dl>
+                    <p><input type=submit value=Login>
+                </form>
+            </aside>
+        {% endif %}
+
+    </div>
+{% endblock %}
+</article>

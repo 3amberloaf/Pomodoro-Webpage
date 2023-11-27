@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/table.html' import render_table %}
+{% from "bootstrap/pagination.html" import render_pagination %}
+
+<div class="row col-8">
+    {% block title %}Browse: {{ record_type }}{% endblock %}
+    {% block content %}
+        <h2>Browse: {{ record_type }}</h2>
+        {{ render_table(data,titles,show_actions=True, table_classes='table-striped', header_classes='thead-dark', responsive=True, responsive_class='table-responsive-sm', model=User,
+            view_url=retrieve_url,
+            edit_url=edit_url,
+            delete_url=delete_url,
+            new_url=add_url) }}
+    {% endblock %}
+</div>

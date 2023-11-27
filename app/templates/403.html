@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+<!-- Exports header and navbar from header.html
+     or any file you want-->
+{% block title %}Access Denied 403{% endblock %}
+{% block content %}
+
+  <h2>Access Denied - 403</h2>
+  <a href="{{ url_for('auth.dashboard') }}"><p>Click Here</a>To go to the dashboard</p>
+
+<!-- {{ url_for('simple_pages.index') }} is a var which returns url of index.html-->
+{% endblock %}

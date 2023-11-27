@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+<article>{% block content %}
+    <h1>About</h1>
+    {{ lipsum (n=5, html=True, min=20, max=100) }}
+{% endblock %}
+</article>

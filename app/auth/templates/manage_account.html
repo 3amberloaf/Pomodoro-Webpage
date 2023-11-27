@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    {% from 'bootstrap5/form.html' import render_form, render_field, render_form_row %}
+
+    <div class="row">
+
+         <div class="mx-auto">
+             <h2>Manage Account</h2>
+             {{ render_form(form) }}
+         </div>
+    </div>
+
+
+{% endblock %}

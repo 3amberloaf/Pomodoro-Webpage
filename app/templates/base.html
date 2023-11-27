@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        <title>My Site - {% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <header class="mb-2">
+            {% from 'bootstrap5/nav.html' import render_nav_item %}
+            {% from 'bootstrap5/utils.html' import render_messages %}
+            {% from 'bootstrap5/form.html' import render_form, render_field, render_form_row %}
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div class="navbar-nav mr-auto">
+                        {% if current_user.is_authenticated %}
+                            {{ render_nav_item('auth.dashboard','Dashboard' ) }}
+                            {% if current_user.is_admin %}
+                                {{ render_nav_item('auth.browse_users','User Management' ) }}
+                            {% endif %}
+
+                        {% else %}
+                            {{ render_nav_item('simple_pages.index', 'Home') }}
+                        {% endif %}
+
+                        {{ render_nav_item('simple_pages.about','About') }}
+                        {{ render_nav_item('simple_pages.welcome','Welcome') }}
+                    </div>
+                </div>
+                <div class="navbar-nav d-flex">
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                My Account
+                            </a>
+                            <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_profile") }}">Manage Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_account") }}">Manage Account</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for("auth.logout") }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        {{ render_nav_item('auth.register','Register' ) }}
+                        {{ render_nav_item('auth.login','Login' ) }}
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+    </div>
+    <!-- Your page content -->
+    <div class="row">
+        {{ render_messages() }}
+    </div>
+    <div class="row mt-5">
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+{% block scripts %}
+    <!-- Optional JavaScript -->
+    {{ bootstrap.load_js() }}
+{% endblock %}
+<footer class="text-center mt-5">
+    Environment: {{ deployment_environment }} - Copyright: {{ year }} {{ format_price(100) }}
+</footer>
+</body>
+</html>
