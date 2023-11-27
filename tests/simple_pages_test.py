@@ -5,7 +5,7 @@ def test_request_main_menu_links(client):
     response = client.get("/")
     assert response.status_code == 200
     assert b'href="/about"' in response.data
-    assert b'href="/welcome"' in response.data
+    assert b'href="/Pomodoro"' in response.data
     assert b'href="/login"' in response.data
     assert b'href="/register"' in response.data
 
@@ -24,9 +24,9 @@ def test_request_about(client):
 
 def test_request_page1(client):
     """This makes the index page"""
-    response = client.get("/welcome")
+    response = client.get("/Pomodoro")
     assert response.status_code == 200
-    assert b"welcome" in response.data
+    assert b"Pomodoro" in response.data
 
 def test_request_page_not_found(client):
     """This makes the index page"""
