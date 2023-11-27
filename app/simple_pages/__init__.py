@@ -19,9 +19,9 @@ def about():
     except TemplateNotFound:
         abort(404)
 
-@simple_pages.route('/welcome')
-def welcome():
+@simple_pages.route('/Pomodoro')
+def Pomodoro():
     try:
-        return render_template('welcome.html')
+        return render_template('Pomodoro.html')
     except TemplateNotFound:
         abort(404)
