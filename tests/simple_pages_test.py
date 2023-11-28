@@ -10,14 +10,14 @@ def test_request_main_menu_links(client):
     assert b'href="/register"' in response.data
 
 
-def test_request_index(client):
-    """This makes the index page"""
+def test_request_pomodoro(client):
+    """This makes the pomodoro page"""
     response = client.get("/")
     assert response.status_code == 200
-    assert b"Index" in response.data
+    assert b"Pomodoro" in response.data
 
 def test_request_about(client):
-    """This makes the index page"""
+    """This makes the about page"""
     response = client.get("/about")
     assert response.status_code == 200
     assert b"About" in response.data
