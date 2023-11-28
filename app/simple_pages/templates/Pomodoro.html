@@ -1,20 +1,20 @@
 {% extends "base.html" %}
-<article>
-  {% block content %}
-    <div class="text-center">
-      <h1 class="Pomodoro">Pomodoro Bunny</h1>
-      <img src="https://media.tenor.com/eiMqmu0vXz8AAAAi/kiss.gif" alt="Pomodoro Bunny GIF" class="img-fluid">
+{% block content %}
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="Pomodoro">Pomodoro Bunny</h1>
+            <img src="https://media.tenor.com/eiMqmu0vXz8AAAAi/kiss.gif" alt="Pomodoro Bunny GIF" class="img-fluid">
+        </div>
+
+        <div id="timer" class="text-center mt-4">
+            <h2>You got this!</h2>
+            <p id="countdown" class="timer-display">00:00</p>
+            <label for="duration">Minutes:</label>
+            <input type="number" id="duration" min="1" value="25">
+            <button onclick="startTimer()" class="timer-button start-button">Start</button>
+            <button onclick="stopTimer()" class="timer-button stop-button">Stop</button>
+        </div>
     </div>
 
-    <div id="timer" class="text-center mt-4">
-      <h2>Countdown Timer</h2>
-      <p id="countdown" class="timer-display">00:00</p>
-      <label for="duration">Set Timer (minutes):</label>
-      <input type="number" id="duration" min="1" value="25">
-      <button onclick="startTimer()" class="timer-button start-button">Start</button>
-      <button onclick="stopTimer()" class="timer-button stop-button">Stop</button>
-    </div>
-  {% endblock %}
-
-  <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
-</article>
+    <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+{% endblock %}

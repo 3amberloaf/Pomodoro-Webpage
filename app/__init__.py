@@ -14,6 +14,7 @@ from app.db.models import User
 from app.db import db
 from app.auth import auth
 from app.cli import create_database
+from app.simple_pages.pomodoro_routes import pomodoro
 
 
 login_manager = flask_login.LoginManager()
@@ -33,6 +34,8 @@ def create_app():
     bootstrap = Bootstrap5(app)
     app.register_blueprint(simple_pages)
     app.register_blueprint(auth)
+    app.register_blueprint(pomodoro) 
+    # This registers the Pomodoro Page
     app.context_processor(utility_text_processors)
     app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'Simplex'
     app.register_error_handler(404, page_not_found)
@@ -55,3 +58,4 @@ def user_loader(user_id):
         return User.query.get(int(user_id))
     except:
         return None
+
