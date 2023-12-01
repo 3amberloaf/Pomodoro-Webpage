@@ -6,6 +6,8 @@ function startTimer() {
         alert("You can study more!");
         return;
     }
+    let durationInput = document.getElementById('duration');
+    durationInput.style.display = 'none';
 
     let endTime = Date.now() + duration * 60000; // Convert minutes to milliseconds
     let lastSecond = -1;
@@ -38,4 +40,8 @@ function pad(number) {
 function stopTimer() {
     clearInterval(countdownInterval);
     document.getElementById('countdown').textContent = "00:00";
+
+    let durationInput = document.getElementById('duration');
+    durationInput.style.display = 'block'; // Show the input field
 }
+

@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container mt-5">
-        <div class="text-center">
-            <h1 class="Pomodoro">Pomodoro Bunny</h1>
+    <div class="pomodoro-container">
+        <div class="pomodoro-header">
+            <h1 class="pomodoro-title">Pomodoro Bunny</h1>
             <img src="https://media.tenor.com/eiMqmu0vXz8AAAAi/kiss.gif" alt="Pomodoro Bunny GIF" class="img-fluid">
         </div>
 
-        <div id="timer" class="text-center mt-4">
-            <h2>You got this!</h2>
-            <p id="countdown" class="timer-display">00:00</p>
-            <label for="duration">Minutes:</label>
-            <input type="number" id="duration" min="1" value="25">
-            <button onclick="startTimer()" class="timer-button start-button">Start</button>
-            <button onclick="stopTimer()" class="timer-button stop-button">Stop</button>
+        <div id="timer" class="pomodoro-timer">
+            <div id="countdown" class="timer-display">00:00</div>
+            <div class="timer-controls">
+                <label for="duration"></label>
+                <input type="number" id="duration" min="1" value="25">
+                <button onclick="startTimer()" class="timer-button start-button">Start</button>
+                <button onclick="stopTimer()" class="timer-button stop-button">Stop</button>
+            </div>
         </div>
     </div>
 

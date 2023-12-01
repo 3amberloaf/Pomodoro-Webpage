@@ -5,7 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         {% block styles %}
             <!-- Bootstrap CSS -->
             {{ bootstrap.load_css() }}
@@ -14,7 +14,7 @@
         <title>My Site - {% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
-<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/018/853/832/non_2x/cute-bunny-pattern-for-background-design-minimalist-rabbit-illustration-for-girls-wallpaper-vector.jpg'); background-size: cover; background-position: center;">
+<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/010/839/386/non_2x/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg'); background-size: cover; background-position: center;">
 <div class="container">
 
     <div class="row">
@@ -81,7 +81,7 @@
     <!-- Optional JavaScript -->
     {{ bootstrap.load_js() }}
 {% endblock %}
-<footer class="text-center mt-5">
+<footer class="pomodoro-h1 mt-5">
     Environment: {{ deployment_environment }} - Copyright: {{ year }} {{ format_price(100) }}
 </footer>
 </body>

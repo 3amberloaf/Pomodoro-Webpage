@@ -1,18 +1,55 @@
 body {
-font-size: 150%;
+  font-size: 150%;
 }
 
-.text-center {
+.pomodoro-container {
+  text-align: center; /* Center aligns all text within the container */
+  font-family: 'Pacifico', cursive;
+  
+}
+
+.pomodoro-timer {
+  background-color: #F9F6EE; /* Light background color */
+  margin: 20px auto;
+  width: 300px; /* Adjust as needed */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+
+}
+.timer-display {
+  font-size: 2em; /* Larger font for the timer */
+  width: 100%;
+  text-align: center;
+  border: none;
+  background: none;
+  margin-bottom: 15px;
+}
+  
+/* General CSS for timer */
+.timer-button {
+    background-color: #f2c1b6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     text-align: center;
-  }
-  
-  .Pomodoro {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-  
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+    font-weight: 400;
+    text-transform: lowercase;
+    cursor: pointer;
+    width: 40%;
+}
+
+/* Color change as you hover over button */
+.timer-button:hover {
+    background-color: #e8a5a0; 
+}
+
