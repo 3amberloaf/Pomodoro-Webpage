@@ -9,7 +9,7 @@ This is a simple webpage design that was initially created to help improve my co
 * Bootsrap
 * Javascript
 * HTML/CSS
-
+* Jinja
 
 # Flask Route
 
@@ -46,3 +46,32 @@ Creating a Flask route allows Flask to execute a specific function at a specifie
         app.run(debug=True)
 ```
 
+# Update CSS 
+
+1. Update CSS to customize templates but have CSS extend from base.html so it applied to all pages
+```
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+```
+
+# Improvements to be made
+
+1. Add more timer functions
+2. Add sound effects
+3. Make the menu bar a drop down
+4. add pop up messages for encouoragement
+
+# Hide the minutes input once timer began
+
+1. Added an identificator to the input field in the html file
+```
+<div id="countdown" class="timer-display">00:00</div>
+```
+
+2. Update the startTimer() and stopTimer() functions so they hide it once it starts
+
+```
+function startTimer() {
+    let durationInput = document.getElementById('duration');
+    durationInput.style.display = 'none'; // Hide the input field
+}
+```
